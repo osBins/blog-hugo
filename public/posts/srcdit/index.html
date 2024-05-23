@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+<title>
+    
+    srcdit | Blog
+    
+</title>
+
+
+
+<link rel="stylesheet" href="/assets/combined.min.772d8826ee2eef88a6e9a6276255a832f2c7a89f602a131e1eea95f2bf123e74.css" media="all">
+
+
+
+  </head>
+
+  
+
+  
+  
+  
+
+  <body class="auto">
+
+    <div class="content">
+      <header>
+        
+
+<div class="header">
+    <h1 class="header-title">Blog</h1>
+
+    <div class="flex">
+        
+
+        
+        
+        <p class="small ">
+            <a href="/">
+                /home
+            </a>
+        </p>
+        
+        <p class="small ">
+            <a href="/posts">
+                /posts
+            </a>
+        </p>
+        
+        
+    </div>
+
+</div>
+      </header>
+
+      <main class="main">
+        
+
+
+
+
+<div class="breadcrumbs">
+    
+    <a href="/">Home</a>
+    <span class="breadcrumbs-separator"> > </span>
+    
+    <a href="/posts/">Posts</a>
+    <span class="breadcrumbs-separator"> > </span>
+    
+    <a class="breadcrumbs-current" href="/posts/srcdit/">srcdit</a>
+</div>
+
+
+<div >
+
+  <div class="single-intro-container">
+
+    
+
+    <h1 class="single-title">srcdit</h1>
+    
+
+    
+
+    <p class="single-readtime">
+      
+      
+      
+      <time datetime="2024-02-06T00:00:00&#43;00:00">February 6, 2024</time>
+      
+
+      
+    </p>
+
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  <div class="single-content">
+    <p>There was a phase when I was editing my <code>.bashrc</code> and <code>.zshrc</code> a lot. Having to edit them and then source them again and again soon became torturous. It would have been so much better if I had a tool to edit and source the files in just one step.</p>
+<p>The best part about being someone who works with and understands software is that I can build a tool to meet this requirement myself.
+I worked on <a href="https://pypi.org/project/srcdit/">srcdit</a> for a few days before getting busy with my internship, and I&rsquo;m glad to announce that it&rsquo;s in a half-working condition. Check it out <a href="https://pypi.org/project/srcdit/">here</a>.</p>
+<p>It&rsquo;s (for now) a PyPi package and meant to be installed globally through pip.</p>
+<h3 id="usage">Usage</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>srcdit [filename] [<span style="color:#666;font-weight:bold;font-style:italic">key</span>=value]
+</span></span></code></pre></div><h3 id="how-it-works">How it works</h3>
+<p>srcdit runs a simple Python script (as of first week of Feb 2024 (I have other plans in mind)) to edit the key-value pair in the file for which the command has been invoked.<br>
+If it does not find the given key in the file, it asks if the user would like to create a new field for the key.<br>
+<figure class="center-image"><img src="https://github.com/osPrims/chatApp/assets/70942982/75eeec3d-cacd-48be-b9ff-57ff7e8e42bf">
+</figure>
+
+<!-- raw HTML omitted --></p>
+<p>The Python script then runs a bash script to <code>source</code> the file and bring changes into the env.<br>
+But this is where we run into problems.</p>
+<h3 id="the-catch">The catch</h3>
+<p>The <code>source</code> is where I am currently running into a major problem.</p>
+<p>The app</p>
+<ul>
+<li>finds the key value pair</li>
+<li>edits it, if found (adds/skips if not found)</li>
+</ul>
+<p>it even sources the edited file, but the changes do not persist in the shell. An <code>os.getenv(key)</code> inside the script outputs the modified value of the sourced environment variable but running an <code>echo $key</code> returns the previous value.</p>
+<p>It took me 3 days to debug and find out why the changes weren&rsquo;t persisting in my terminal. I tried all combinations of <code>source</code>ing the file from the script, running a bash script to source the file, making the bash script call another bash script to source the file but none of it worked. The modified value showed up during application runtime but vanished as soon as my program exited, even though the key-value modification persisted in the file.</p>
+<h3 id="what-was-going-on">What was going on</h3>
+<p>Apparently, when a Python script runs, it runs in a subprocess inside the current shell. It&rsquo;s a child process of the shell which executes it. So when the Python script sources a file it modifies its own environment and, by rule, cannot modify the environment for its parent process.</p>
+<p>And since <code>source</code> is a built-in BASH command, it gets to modify the environment when invoked directly, instead of from a script.</p>
+<p>This has been the <code>source</code> of my headache since the past few days (sorry, couldn&rsquo;t help it).</p>
+<h3 id="possible-workaround">Possible workaround</h3>
+<p>To experiment with possible workarounds, I created a bash script to source a file. Even that did not bring environment variables into my current shell. What FINALLY worked was sourcing the bash script itself.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic">source</span> srcdit.sh
+</span></span></code></pre></div><p>This modified the current environment to retain the key-value pairs from a file.</p>
+<p>This also means that running my Python script as the entry point to the application will not work to create persisting changes in the current shell.</p>
+<h3 id="rubber-duckinghttpsrubberduckdebuggingcom"><a href="https://rubberduckdebugging.com/">Rubber ducking</a></h3>
+<p>The only possible workaround I have come up with right now is sourcing the bash script to modify the current environment. A PyPi package is out of question if a full implementation of the edit + source is required. Creating an alias for <code>source script.sh [filename] [key=value]</code> will get the job done. I look forward to getting the app up and running with this approach soon so it can be packaged and published to software repositories - apt, pacman and dnf so that it helps a fellow shell customization enthusiast out there somewhere as well!</p>
+
+    
+  </div>
+
+  
+  <div class="back-to-top">
+    <a href="#top">
+      back to top
+    </a>
+  </div>
+  
+
+</div>
+
+
+      </main>
+    </div>
+
+    <footer>
+      <p>Fueled by coffee, code and my favourite subreddits,
+    powered by
+    <a href="https://gohugo.io/">Hugo</a>
+</p>
+
+
+    </footer>
+
+  </body>
+
+  <script>
+
+  function isAuto() {
+    return document.body.classList.contains("auto");
+  }
+
+  function setTheme() {
+    if (!isAuto()) {
+      return
+    }
+
+    document.body.classList.remove("auto");
+    let cls = "light";
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      cls = "dark";
+    }
+
+    document.body.classList.add(cls);
+  }
+
+  function invertBody() {
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+  }
+
+  if (isAuto()) {
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(invertBody);
+  }
+
+  setTheme();
+
+</script>
+
+</html>

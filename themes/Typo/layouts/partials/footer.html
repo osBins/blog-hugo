@@ -1,0 +1,8 @@
+<p>Fueled by coffee, code and my favourite subreddits,
+    powered by
+    <a href="https://gohugo.io/">Hugo</a>
+</p>
+
+{{ if .Param "math" }}
+{{ partialCached "math.html" . }}
+{{ end }}

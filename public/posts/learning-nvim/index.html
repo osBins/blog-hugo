@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+<title>
+    
+    First 4 hours of using Neovim | Blog
+    
+</title>
+
+
+
+<link rel="stylesheet" href="/assets/combined.min.772d8826ee2eef88a6e9a6276255a832f2c7a89f602a131e1eea95f2bf123e74.css" media="all">
+
+
+
+  </head>
+
+  
+
+  
+  
+  
+
+  <body class="auto">
+
+    <div class="content">
+      <header>
+        
+
+<div class="header">
+    <h1 class="header-title">Blog</h1>
+
+    <div class="flex">
+        
+
+        
+        
+        <p class="small ">
+            <a href="/">
+                /home
+            </a>
+        </p>
+        
+        <p class="small ">
+            <a href="/posts">
+                /posts
+            </a>
+        </p>
+        
+        
+    </div>
+
+</div>
+      </header>
+
+      <main class="main">
+        
+
+
+
+
+<div class="breadcrumbs">
+    
+    <a href="/">Home</a>
+    <span class="breadcrumbs-separator"> > </span>
+    
+    <a href="/posts/">Posts</a>
+    <span class="breadcrumbs-separator"> > </span>
+    
+    <a class="breadcrumbs-current" href="/posts/learning-nvim/">First 4 hours of using Neovim</a>
+</div>
+
+
+<div >
+
+  <div class="single-intro-container">
+
+    
+
+    <h1 class="single-title">First 4 hours of using Neovim</h1>
+    
+
+    
+
+    <p class="single-readtime">
+      
+      
+      
+      <time datetime="2023-11-23T00:00:00&#43;00:00">November 23, 2023</time>
+      
+
+      
+    </p>
+
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  <div class="single-content">
+    <p>I&rsquo;ve finally decided to give scary Vim a try after I followed a few commands online and got stuck in it 2 years ago. After hacking at it for the past 4 hours, here are some short notes from what I&rsquo;ve learned researching and using <code>neovim</code>.</p>
+<h3 id="what-is-vim">What is Vim?</h3>
+<p>In simple words, a text editor which considers the use of mouse to navigate/edit a blasphemy.<br>
+Vim is a modal text editor (it uses different modes in which text can be manipulated). It is powerful and highly configurable. I&rsquo;ve started getting my hands dirty with Neovim, which is an extensible fork of Vim through the use of highly functional plugins and comes with a better set of defaults like LSP, to support coding right out of the box.</p>
+<h3 id="approach">Approach</h3>
+<p>As suggested by neovim itself, I went through the <code>:Tutor</code> which took me around 30-45 minutes. After that, I&rsquo;ve spent the time up till now googling every little thing, from shortcuts, plugins, <code>init.vim</code>s et cetera.</p>
+<h3 id="so-far">So far</h3>
+<p>Writing this article using Neovim, I&rsquo;ve already used a few shortcuts to edit the title and metadata description.</p>
+<ol>
+<li>
+<p>Deleted previous title from the first apostrophe till the end of the line using <code>d$</code> which is the DELETE operator followed by the <code>$</code> motion which stands for &rsquo;end of line'.</p>
+</li>
+<li>
+<p>I had to add the second apostrophe again which was removed by the <code>d$</code> command, so I looked for a way to delete the line excluding the second apostrophe. A kind lad had asked the same question on Stack Overflow 11 years ago.
+I had to delete using the <code>dt'</code> command which stands for DELETE TILL <!-- raw HTML omitted -->. I&rsquo;m already loving Neovim.</p>
+</li>
+<li>
+<p>A simple copy of the first line of the post using <code>y</code> (YANK) and <code>p</code> (PUT) to paste it into the description section.</p>
+</li>
+</ol>
+<h3 id="whats-new-to-me">What&rsquo;s new to me</h3>
+<ul>
+<li>Neovim&rsquo;s document traversing capability is insane. It need less than 5 strokes of my keyboard to reach anywhere in the file. Capital G sends me to the end of the document. <code>gg</code> sends me to the first line. Any number followed by <code>G</code> sends me the specified line.</li>
+<li>I can skip words using <code>w</code> and <code>e</code>, move to the end of the line using <code>$</code>, to the beginning of the line using <code>0</code>.</li>
+<li>I can delete a number of words with the <code>d&lt;number&gt;w</code> command, starting from the cursor position.</li>
+<li>I can skip to the next instance of a character using <code>f&lt;char&gt;</code>.</li>
+<li>Regardless of cursor position on a line, I can use <code>o</code> to start writing on a new line.
+and so much more.</li>
+</ul>
+<h3 id="new-finding">New finding</h3>
+<p>While looking at a few basic Neovim configs, I ran into dotfile management which I think is super cool.
+Took me no time to get invested in <a href="https://github.com/anishathalye/dotbot">dotbot</a> to manage and backup my dotfiles, given how frequently I hop distros (my <code>.zshrc</code> is super close to my heart).</p>
+<h3 id="concluding-remarks">Concluding remarks</h3>
+<p>It hasn&rsquo;t been even a day since I&rsquo;ve been using Neovim and I already understand its hype. My speed of writing has taken a hit for now since I find myself trying to recall the commands. Sometimes forcing myself to use a Neovim shortcut instead of just going into &lsquo;Insert mode&rsquo; and navigating with my cursor. As suggested by devs all around, I have my fingers crossed, learning Vim the hard way, hoping for the efforts to eventually pay off.</p>
+
+    
+  </div>
+
+  
+  <div class="back-to-top">
+    <a href="#top">
+      back to top
+    </a>
+  </div>
+  
+
+</div>
+
+
+      </main>
+    </div>
+
+    <footer>
+      <p>Fueled by coffee, code and my favourite subreddits,
+    powered by
+    <a href="https://gohugo.io/">Hugo</a>
+</p>
+
+
+    </footer>
+
+  </body>
+
+  <script>
+
+  function isAuto() {
+    return document.body.classList.contains("auto");
+  }
+
+  function setTheme() {
+    if (!isAuto()) {
+      return
+    }
+
+    document.body.classList.remove("auto");
+    let cls = "light";
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      cls = "dark";
+    }
+
+    document.body.classList.add(cls);
+  }
+
+  function invertBody() {
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+  }
+
+  if (isAuto()) {
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(invertBody);
+  }
+
+  setTheme();
+
+</script>
+
+</html>

@@ -1,0 +1,74 @@
+baseURL = 'https://arpitjn.com'
+languageCode = 'en-us'
+title = 'Blog'
+theme = 'Typo'
+
+[taxonomies]
+tag = 'tags'
+
+# Google analytics code
+googleAnalytics = "G-xxxxxxxxx"
+
+[params]
+# Appearance settings
+theme = 'auto'
+
+# Intro on main page, content is markdown
+homeIntroTitle = 'Hello 👋, I am Arpit'
+homeIntroContent = """
+I (occasionally) write on tech I use, things I do, and stuff I learn.
+"""
+
+# Collection to display on home
+homeCollectionTitle = 'Posts'
+homeCollection = 'posts'
+
+# Lists parameters
+paginationSize = 100
+listSummaries = true
+listDateFormat = 'Jan 2006'
+
+# Breadcrumbs
+breadcrumbs = true
+
+# Social icons
+[[params.social]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/arpitxjain/"
+
+[[params.social]]
+name = "medium"
+url = "https://arpitjain-23306.medium.com/"
+
+[[params.social]]
+name = "github"
+url = "https://github.com/osbins"
+
+# Main menu pages
+[[params.menu]]
+name = "home"
+url = "/"
+
+[[params.menu]]
+name = "posts"
+url = "/posts"
+
+
+# [[params.menu]]
+# name = "about"
+# url = "/about"
+
+# Syntax highligth on code blocks
+[markup]
+[markup.highlight]
+style = 'algol'
+
+# Giscus comments
+[params.giscus]
+enable = false
+repo = "user/repo"
+repoid = "repoId"
+category = "General"
+categoryid = "categoryId"
+mapping = "pathname"
+theme = "preferred_color_scheme"

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+<title>
+    
+    Generating Sign Language | Blog
+    
+</title>
+
+
+
+<link rel="stylesheet" href="/assets/combined.min.772d8826ee2eef88a6e9a6276255a832f2c7a89f602a131e1eea95f2bf123e74.css" media="all">
+
+
+
+  </head>
+
+  
+
+  
+  
+  
+
+  <body class="auto">
+
+    <div class="content">
+      <header>
+        
+
+<div class="header">
+    <h1 class="header-title">Blog</h1>
+
+    <div class="flex">
+        
+
+        
+        
+        <p class="small ">
+            <a href="/">
+                /home
+            </a>
+        </p>
+        
+        <p class="small ">
+            <a href="/posts">
+                /posts
+            </a>
+        </p>
+        
+        
+    </div>
+
+</div>
+      </header>
+
+      <main class="main">
+        
+
+
+
+
+<div class="breadcrumbs">
+    
+    <a href="/">Home</a>
+    <span class="breadcrumbs-separator"> > </span>
+    
+    <a href="/posts/">Posts</a>
+    <span class="breadcrumbs-separator"> > </span>
+    
+    <a class="breadcrumbs-current" href="/posts/sign-language-generation/">Generating Sign Language</a>
+</div>
+
+
+<div >
+
+  <div class="single-intro-container">
+
+    
+
+    <h1 class="single-title">Generating Sign Language</h1>
+    
+
+    
+
+    <p class="single-readtime">
+      
+      
+      
+      <time datetime="2023-10-16T00:00:00&#43;00:00">October 16, 2023</time>
+      
+
+      
+    </p>
+
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  <div class="single-content">
+    <p>I&rsquo;ve been working on creating a more accessible space online for the specially abled using AI/ML technologies under my university&rsquo;s Centre of Excellence.</p>
+<h3 id="the-what-why-who-when-and-where">The What, Why, Who, When and Where</h3>
+<p>About 5% of our country&rsquo;s population suffers from auditory and speech impairment. Most of the educational content available on the internet caters to the &ldquo;mainstream&rdquo; population and <strong>lacks accessibility features</strong> for those with special needs.</p>
+<!-- raw HTML omitted -->
+<figure class="center-image"><img src="https://uploads.iasscore.in/image/Persons-with-Disabilities-%28Divyangjan%29-in-India.jpg" width="80%">
+</figure>
+
+<p>In order to create a friendlier online space for them, we are working on modules which will essentially <strong>translate the content</strong> on internet into a more comprehensible form.</p>
+<p>It is currently WIP and I hope to make more developments, have it deployed on the web by the time I graduate in a few months.</p>
+<h3 id="how">How?</h3>
+<p>One of the main modules I&rsquo;m developing for this project translates English videos to sign language through a series of conversions.<br>
+The translated sign language gestures are acted out by a generated avatar provided by <em>Virtual Humans Group at UEA, Norwich.</em>
+Say hi to Luna -
+<figure class="center-image"><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/70942982/275352250-41dea6dc-b87c-4717-96f6-33946727e9eb.png" width="30%">
+</figure>
+</p>
+<h4 id="the-technical-details">The Technical Details</h4>
+<p>I&rsquo;ll explain by reverse engineering.</p>
+<ol>
+<li>Our avatar, in order to act out the sign language gestures, takes input in the form of SiGML <em>(Signing Gesture Markup Language)</em> which is nothing but an XML describing the location and movements to be performed by the hands and fingers.</li>
+<li>SiGML is formed through an interesting character encoding, HamNoSys <em>(Hamburg Notation System)</em>, which is a set of unicode characters transcribing our signing gestures.</li>
+<li>Currently in our (limited) database, every English word has it&rsquo;s corresponding HamNoSys notation (yes, hash maps🤠).</li>
+<li>The next task was to extract text from videos using Automatic Speech Recognition. Another team from my university developed a model to transcribe text from spoken English videos, which we are currently using for our project. However, other tools and libraries (thanking OpenAI for a super accurate Whisper ASR) are viable alternatives.</li>
+</ol>
+<p>Here&rsquo;s Luna signing &ldquo;I take a mug&rdquo; -</p>
+<figure class="center-image"><img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjdoYzhwZ2Frc2lrNGc2eHNlMW9qMm90aDVsNHRmYnQyNmtlb3V1bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/faBMq582pan7Z2gpY2/giphy.gif" width="30%">
+</figure>
+
+<h2 id="challenges">Challenges</h2>
+<p>Throughout the development process, I have faced several challenges -</p>
+<h4 id="lack-of-research-and-development-on-indian-sign-language">Lack of research and development on Indian Sign Language</h4>
+<p>No HamNoSys notations were found for ISL glosses. The module currently translates to British Sign Language (BSL).</p>
+<h3 id="limited-sign-language-grammar-and-vocabulary">Limited sign language grammar and vocabulary</h3>
+<ul>
+<li>Unlike spoken and written English, sign language does not account for words like &lsquo;a&rsquo;, &lsquo;an&rsquo;, &rsquo;the&rsquo;, &lsquo;is&rsquo;, &lsquo;am&rsquo;, &lsquo;are&rsquo; et cetera.</li>
+<li>There&rsquo;s a complex set of grammatical rules to translate English to sign language which needs to be followed for correct translations.</li>
+<li>Words like &lsquo;breakfast&rsquo; and &lsquo;daughter&rsquo; are considered complicated by sign language. No signs exist for these words. They are broken down into &lsquo;morning food&rsquo; and &lsquo;girl child&rsquo; to sign.</li>
+</ul>
+<h4 id="avatar-is-expressionless-and-cold">Avatar is expressionless and cold</h4>
+<p>No emotions are expressed by the avatar while signing. Honestly, it makes them unpleasant to look at.</p>
+<h4 id="no-way-to-verify-the-integrity-and-accuracy-of-signs">No way to verify the integrity and accuracy of signs</h4>
+<p>There&rsquo;s a lack of a process to test and verify how correct the generated signs are.</p>
+<h3 id="future-scope">Future Scope</h3>
+<p>Being a research-cum-development project, advancements in sign language and closely working with the concerned authorities will mutually benefit the researchers and developers. For this reason, we are in touch with ISLRTC, GoI to further research and development on Indian Sign Language, with the help of which, we can work on creating a platform to uplift those with special needs and increase accessibility online.</p>
+
+    
+  </div>
+
+  
+  <div class="back-to-top">
+    <a href="#top">
+      back to top
+    </a>
+  </div>
+  
+
+</div>
+
+
+      </main>
+    </div>
+
+    <footer>
+      <p>Fueled by coffee, code and my favourite subreddits,
+    powered by
+    <a href="https://gohugo.io/">Hugo</a>
+</p>
+
+
+    </footer>
+
+  </body>
+
+  <script>
+
+  function isAuto() {
+    return document.body.classList.contains("auto");
+  }
+
+  function setTheme() {
+    if (!isAuto()) {
+      return
+    }
+
+    document.body.classList.remove("auto");
+    let cls = "light";
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      cls = "dark";
+    }
+
+    document.body.classList.add(cls);
+  }
+
+  function invertBody() {
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+  }
+
+  if (isAuto()) {
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(invertBody);
+  }
+
+  setTheme();
+
+</script>
+
+</html>
