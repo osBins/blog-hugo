@@ -24,7 +24,7 @@ homeCollectionTitle = 'Posts'
 homeCollection = 'posts'
 
 # Lists parameters
-paginationSize = 100
+paginationSize = 5
 listSummaries = true
 listDateFormat = 'Jan 2006'
 
