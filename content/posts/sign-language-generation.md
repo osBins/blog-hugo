@@ -18,7 +18,7 @@ It is currently WIP and I hope to make more developments, have it deployed on th
 ### How?
 One of the main modules I'm developing for this project translates English videos to sign language through a series of conversions.  
 The translated sign language gestures are acted out by a generated avatar provided by *Virtual Humans Group at UEA, Norwich.*
-Say hi to Luna - 
+
 ![](https://github-production-user-asset-6210df.s3.amazonaws.com/70942982/275352250-41dea6dc-b87c-4717-96f6-33946727e9eb.png#small "Say hi to Luna")
 
 #### The Technical Details
