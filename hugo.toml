@@ -1,6 +1,6 @@
 baseURL = 'https://arpitjn.com'
 languageCode = 'en-us'
-title = 'Blog'
+title = 'Arpit J | Blog'
 theme = 'Typo'
 
 [taxonomies]
