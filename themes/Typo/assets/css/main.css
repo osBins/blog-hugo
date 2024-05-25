@@ -353,8 +353,18 @@ footer a {
   justify-content: center;
 }
 
+.img-smaller div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .img-small img {
   scale: 80%;
+}
+
+.img-smaller img {
+  scale: 60%;
 }
 
 .img-full div {
