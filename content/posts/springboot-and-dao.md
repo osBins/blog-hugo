@@ -33,7 +33,7 @@ There is a great importance given clean, modular, maintainable code in the indus
 The code I've written consists of 4 main layers:
 1. **Controller Layer** - Entrypoint of all requests made to the API.
 2. **Service Layer** - Contains business logic and is blissfully unaware of the inner workings of the data retrieval and manipulation process.
-3. **Data Access Layer** - Interacts with the database and handles data mapping, query execution to get the service layer whatit needs.
+3. **Data Access Layer** - Interacts with the database and handles data mapping, query execution to get the service layer what it needs.
 4. **Data Layer** - My use case involved a layer of DTOs for reduced coupling and data validation. The validation is possible through Java's strongly typed nature, enforcing type checking during compile time.  
 
 ### A short DAO principle example
