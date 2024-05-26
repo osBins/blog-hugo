@@ -1,7 +1,8 @@
----
++++
 title = 'DAO Design Pattern with Spring Boot'
 date = 2024-05-26T04:04:08+05:30
----
++++
+
 It has been a couple of months to me developing a backend driven service for the organization where I'm interning. From hating the J of Java (irrationally) to easily writing complex controller classes and services with Spring Boot, this project has given me my first hands-on experience with Java, Spring Boot, and the DAO design pattern.
 
 ## Spring Boot
@@ -40,7 +41,8 @@ The code I've written consists of 4 main layers:
 The service I'm developing has an entity called `experiment` and for every experiment, there exists a computable `result`.  
 If we expand on the flow of data to get the result of a defined experiment; let's say I give the API an experiment number for which I want to get the result. `/experiment/123/result`.
 
-The `Result` object from its data class will be called.
+The `Result` object from its data class will be called.  
+**Data Layer**
 ```java
 @Accessors
 public class Result {
@@ -56,8 +58,8 @@ public class Result {
 }
 ```
 
-The DAO layer will then fetch the entities needed for computing the result for the given experiment. This is achieved through the entities and repositories defined in the DAO layer.
-
+The DAO layer will then fetch the entities needed for computing the result for the given experiment. This is achieved through the entities and repositories defined in the DAO layer.  
+**Data Access Object Layer**
 ```java
 @Service
 public class ExperimentDaoImpl implements ExperimentDao {
@@ -69,8 +71,8 @@ public class ExperimentDaoImpl implements ExperimentDao {
 
 }
 ```
-Here I'm returning the goal ID, through which we will fetch the goal. The goal object contains the data needed for computing result. After the DAO layer is done doing the heavy-lifting for fetching data, it is passed to the service layer for the ✨ magic ✨.
-
+Here I'm returning the goal ID, through which we will fetch the goal. The goal object contains the data needed for computing result. After the DAO layer is done doing the heavy-lifting for fetching data, it is passed to the service layer for the ✨ magic ✨.  
+**Service Layer**
 ```java
 @Service
 public class ExperimentServiceImpl implements ExperimentService {
@@ -91,8 +93,8 @@ public class ExperimentServiceImpl implements ExperimentService {
         return resultSQLService.getResult(goal);
     }
 ```
-Skipping the intricate and non-essential (for the scope of this discussion) calculations performed by the `resultSQLService` class, the result object is return by this service layer to the controller layer, where the request had originated from.
-
+Skipping the intricate and non-essential (for the scope of this discussion) calculations performed by the `resultSQLService` class, the result object is return by this service layer to the controller layer, where the request had originated from.  
+**Controller Layer**
 ```java
 @RestController
 public class ExperimentController {
