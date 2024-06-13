@@ -20,8 +20,8 @@ I (occasionally) write on tech I use, things I do, and stuff I learn.
 """
 
 # Collection to display on home
-homeCollectionTitle = 'Posts'
-homeCollection = 'posts'
+homeCollectionTitle = 'Notes'
+homeCollection = 'notes'
 
 # Lists parameters
 paginationSize = 5
@@ -50,8 +50,8 @@ name = "home"
 url = "/"
 
 [[params.menu]]
-name = "posts"
-url = "/posts"
+name = "notes"
+url = "/notes"
 
 
 # [[params.menu]]
