@@ -32,17 +32,17 @@ listDateFormat = 'Jan 2006'
 breadcrumbs = true
 
 # Social icons
-[[params.social]]
-name = "linkedin"
-url = "https://www.linkedin.com/in/arpitxjain/"
+# [[params.social]]
+# name = "linkedin"
+# url = "https://www.linkedin.com/in/arpitxjain/"
 
-[[params.social]]
-name = "medium"
-url = "https://arpitjain-23306.medium.com/"
+# [[params.social]]
+# name = "medium"
+# url = "https://arpitjain-23306.medium.com/"
 
-[[params.social]]
-name = "github"
-url = "https://github.com/osbins"
+# [[params.social]]
+# name = "github"
+# url = "https://github.com/osbins"
 
 # Main menu pages
 [[params.menu]]
