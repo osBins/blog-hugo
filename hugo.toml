@@ -6,11 +6,11 @@ theme = 'Typo'
 [taxonomies]
 tag = 'tags'
 
-# Google analytics code
-googleAnalytics = "G-800SX4Q25Q"
 
 [params]
 description = 'I (occasionally) write on tech I use, things I do, and stuff I learn.'
+# Google analytics code
+googleAnalytics = "G-800SX4Q25Q"
 
 # Appearance settings
 theme = 'auto'
