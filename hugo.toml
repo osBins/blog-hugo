@@ -7,7 +7,7 @@ theme = 'Typo'
 tag = 'tags'
 
 # Google analytics code
-googleAnalytics = "G-xxxxxxxxx"
+googleAnalytics = "G-800SX4Q25Q"
 
 [params]
 description = 'I (occasionally) write on tech I use, things I do, and stuff I learn.'
