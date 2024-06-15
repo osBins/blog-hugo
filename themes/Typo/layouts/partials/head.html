@@ -1,23 +1,39 @@
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<meta name="description" content="Learning code, conquering Linux, and exploring the weird corners of the internet. I write about tech I use, things I do, stuff I learn and more">
-<meta property="og:title" content="Arpit's Blog" />
-    <meta property="og:description" content="Tech I use, things I do, stuff I learn and (hopefully) more" />
-    <meta property="og:image" content="https://raw.githubusercontent.com/osBins/blog-hugo/master/static/OG.png" />
-    <meta property="og:image:secure_url" content="https://raw.githubusercontent.com/osBins/blog-hugo/master/static/OG.png" />
-    <meta name="google-site-verification" content="-SFw553OBGhGZF6JdjpSxxGodsLIjebOJQHBL5fE9dA" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta
+  name="description"
+  content="Learning code, conquering Linux, and exploring the weird corners of the internet. I write about tech I use, things I do, stuff I learn and more"
+/>
+<meta
+  property="og:title"
+  content="
+    {{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf `%s | Notes` .Title }}{{ end }}
+    "
+/>
+<meta
+  property="og:description"
+  content="
+    {{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ printf `%s` .Summary | safeHTML | truncate 200}}{{ end }}
+    "
+/>
+<meta
+  property="og:image"
+  content="https://raw.githubusercontent.com/osBins/blog-hugo/master/static/OG.png"
+/>
+<meta
+  property="og:image:secure_url"
+  content="https://raw.githubusercontent.com/osBins/blog-hugo/master/static/OG.png"
+/>
+<meta
+  name="google-site-verification"
+  content="-SFw553OBGhGZF6JdjpSxxGodsLIjebOJQHBL5fE9dA"
+/>
 
 <title>
-    {{ if .IsHome }}
-    {{ site.Title }}
-    {{ else }}
-    {{ printf "%s | %s" .Title site.Title }}
-    {{ end }}
+  {{ if .IsHome }} {{ site.Title }} {{ else }} {{ printf "%s | %s" .Title
+  site.Title }} {{ end }}
 </title>
 
-{{ partialCached "head/css.html" . }}
-{{ partialCached "head/js.html" . }}
-
-{{ if hugo.IsProduction }}
-{{ template "_internal/google_analytics.html" . }}
-{{ end }}
+{{ partialCached "head/css.html" . }} {{ partialCached "head/js.html" . }} {{ if
+hugo.IsProduction }} {{ template "_internal/google_analytics.html" . }} {{ end
+}}

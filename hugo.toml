@@ -10,6 +10,8 @@ tag = 'tags'
 googleAnalytics = "G-xxxxxxxxx"
 
 [params]
+description = 'I (occasionally) write on tech I use, things I do, and stuff I learn.'
+
 # Appearance settings
 theme = 'auto'
 
