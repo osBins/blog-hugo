@@ -30,7 +30,7 @@ Available commands are:
 Safely assuming that the application^^ is up and running. This is one of the many production-grade features the actuator provides.
 
 ## DAO Design Pattern (with Spring Boot)
-There is a great importance given clean, modular, maintainable code in the industry. For this reason, I was introduced to the **Data Access Object (DAO)** design pattern. It was painful writing code following the structural constraints of the DAO design pattern, but once I got the hang of it, and had started making amendments to the code, I was struck by the impact it had on simplifying my daily living.  
+Clean, modular and maintainable code is of great importance in the industry. For this reason, I was introduced to the **Data Access Object (DAO)** design pattern. It was painful writing code following the structural constraints of the DAO design pattern, but once I got the hang of it, and had started making amendments to the code, I was struck by the impact it had on simplifying my daily living.  
 The code I've written consists of 4 main layers:
 1. **Controller Layer** - Entrypoint of all requests made to the API.
 2. **Service Layer** - Contains business logic and is blissfully unaware of the inner workings of the data retrieval and manipulation process.
