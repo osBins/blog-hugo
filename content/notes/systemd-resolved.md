@@ -1,5 +1,5 @@
 +++
-title = "How to fix messed up work VPN on work laptop (Ubuntu)"
+title = "How to fix messed up internal VPN on Ubuntu"
 date = 2024-09-09
 +++
 
