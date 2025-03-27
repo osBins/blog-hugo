@@ -30,6 +30,7 @@ if (index < string.length AND current character + or -) {
     sign = 1 if '+' 
     OR
     sign = -1 if '-'
+    increment index
 }
 
 while (index < string.length) {
