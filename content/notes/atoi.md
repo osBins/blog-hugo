@@ -1,7 +1,6 @@
 +++
 title = 'atoi()'
 date = 2025-03-27
-draft = true
 +++
 
 [LC8](https://leetcode.com/problems/string-to-integer-atoi/) took all of my time today. Pseudocoding here for reference later --
