@@ -1,7 +1,7 @@
 baseURL = 'https://arpitjn.com'
 languageCode = 'en-us'
 title = 'Arpit J | Notes'
-theme = 'Typo'
+theme = ['hugo-embed-pdf-shortcode', 'Typo']
 
 [taxonomies]
 tag = 'tags'
