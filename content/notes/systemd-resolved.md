@@ -1,5 +1,6 @@
 +++
 title = "How to fix messed up internal VPN on Ubuntu"
+description = "Stack Overflow to the rescue."
 date = 2024-09-09
 +++
 

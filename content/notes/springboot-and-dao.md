@@ -1,6 +1,7 @@
 +++
 title = 'DAO Design Pattern with Spring Boot'
 date = 2024-05-26T04:04:08+05:30
+description = "From hating the J of Java (irrationally) to easily writing complex controller classes and services with Spring Boot: my first hands-on experience with Java, Spring Boot, and the DAO design pattern."
 +++
 
 It has been a couple of months to me developing a backend driven service for the organization where I'm interning. From hating the J of Java (irrationally) to easily writing complex controller classes and services with Spring Boot, this project has given me my first hands-on experience with Java, Spring Boot, and the DAO design pattern.

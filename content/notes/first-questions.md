@@ -1,7 +1,7 @@
 +++
 title = "Questions that will probably come back"
 date = 2025-10-03T02:06:53+05:30
-description = "Practice makes perfect"
+description = "Practice makes perfect."
 draft = false
 +++
 

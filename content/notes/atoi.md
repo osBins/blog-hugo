@@ -1,5 +1,6 @@
 +++
 title = 'atoi()'
+description = "LC8 took all of my time today. Pseudocoding here for reference later."
 date = 2025-03-27
 +++
 

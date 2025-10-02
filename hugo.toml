@@ -26,7 +26,7 @@ homeCollectionTitle = 'Notes'
 homeCollection = 'notes'
 
 # Lists parameters
-paginationSize = 5
+paginationSize = 10
 listSummaries = true
 listDateFormat = 'Jan 2006'
 
