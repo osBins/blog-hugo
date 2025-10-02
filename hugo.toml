@@ -16,7 +16,7 @@ googleAnalytics = "G-800SX4Q25Q"
 theme = 'auto'
 
 # Intro on main page, content is markdown
-homeIntroTitle = 'Hello 👋, I am Arpit'
+homeIntroTitle = 'Hello'
 homeIntroContent = """
 I (occasionally) write on tech I use, things I do, and stuff I learn.
 """
